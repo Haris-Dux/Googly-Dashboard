@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import "./Auth.css";
-import { sendOtpAsync, verifyOtpAsync } from "../features/authSlice";
+import { verifyOtpAsync } from "../features/authSlice";
 
 const verifyOtp = () => {
   const dispatch = useDispatch();
@@ -37,7 +37,6 @@ const verifyOtp = () => {
     <>
       <section
         id="login"
-        className="bg-gradient-to-t from-[#fbc2eb] to-[#a6c1ee]"
       >
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto min-h-[100vh] lg:py-0">
           <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 ">

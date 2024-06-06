@@ -6,6 +6,7 @@ import axios from "axios";
 const initialState = {
   user: null,
   isLoading: false,
+  sessionLoading:false,
   userId: null,
   forgetPasswordEmail: null,
   resetPassword: null,
@@ -153,10 +154,10 @@ const authSlice = createSlice({
 
       // User Session
       .addCase(userSessionAsync.pending, (state, action) => {
-        state.isLoading = true;
+        state.sessionLoading = true;
       })
       .addCase(userSessionAsync.fulfilled, (state, action) => {
-        state.isLoading = false;
+        state.sessionLoading = false;
         state.user = action.payload;
       })
 

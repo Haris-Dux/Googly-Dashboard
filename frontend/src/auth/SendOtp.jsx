@@ -13,11 +13,6 @@ const SendOtp = () => {
 
   const { isLoading } = useSelector((state) => state.auth);
 
-  // useEffect(() => {
-  //   if (user && user?.login) {
-  //     navigate("/admin");
-  //   }
-  // }, []);
 
   // HANDLE SUBMIT
   const handleSubmit = (e) => {
