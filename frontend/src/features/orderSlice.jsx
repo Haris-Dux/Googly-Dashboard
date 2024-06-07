@@ -29,7 +29,7 @@ export const getAllOrdersAsync = createAsyncThunk(
 );
 
 export const updateOrdersAsync = createAsyncThunk(
-  "coupon/updateCoupon",
+  "coupon/updateOreder",
   async (data) => {
     try {
       const response = await axios.post(updateOrdersUrl, data);

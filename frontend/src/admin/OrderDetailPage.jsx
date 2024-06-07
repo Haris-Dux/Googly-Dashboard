@@ -15,6 +15,7 @@ const OrderDetailPage = () => {
   }, []);
 
   const [isOpen, setIsOpen] = useState(false);
+  const [status,setSelectedStatus] = useState("")
 
   const dropdownRef = useRef(null);
   const orders = useSelector((state) => state.order.orders);
@@ -44,12 +45,7 @@ const OrderDetailPage = () => {
   };
   const handleUpdateStatus = (status) => {
     const orderProgress = status;
-    dispatch(updateOrdersAsync({ id, orderProgress })).then((res) => {
-      if (res.payload.message === "Order Data Updated") {
-        dispatch(getAllOrdersAsync());
-      }
-    });
-    setSelectedStatus(null);
+    dispatch(updateOrdersAsync({ id, orderProgress }))
     setIsOpen(false);
   };
 
@@ -78,9 +74,9 @@ const OrderDetailPage = () => {
                   type="button"
                   onClick={toggleDropdown}
                 >
-                  {data.orderProgress
-                    ? `${data.orderProgress}`
-                    : "Update Order Status"}
+                  {status.length > 0
+                    ? `${status}`
+                    : `${data.orderProgress}`}
 
                   <IoIosArrowDown
                     size={18}

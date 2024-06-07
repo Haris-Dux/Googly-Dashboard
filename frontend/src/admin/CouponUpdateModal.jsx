@@ -38,11 +38,11 @@ const CouponUpdateModal = ({ updatedCouponId, openModal, setOpenModal }) => {
         isActive: coupon.isActive || false,
       });
     }
-  }, [updatedCouponId]);
+  }, [updatedCouponId,coupons]);
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
-    return date.toISOString().split("T")[0];
+    return isNaN(date) ? "" : date.toISOString().split("T")[0];
   };
 
   // HANDLE SUBMIT
@@ -57,7 +57,7 @@ const CouponUpdateModal = ({ updatedCouponId, openModal, setOpenModal }) => {
           dispatch(getAllCoupunAsync());
         }
         setOpenModal(false);
-        selectedCoupon = null
+        selectedCoupon = null;
       });
     } else if (
       updateFormData.allProducts === false &&
@@ -78,7 +78,7 @@ const CouponUpdateModal = ({ updatedCouponId, openModal, setOpenModal }) => {
     }
   };
 
-  const categories = ["Skincare", "Body Care", "Haircare", "Cosmetics"];
+  const categories = ["Men","Women"];
 
   return (
     <>
@@ -150,7 +150,7 @@ const CouponUpdateModal = ({ updatedCouponId, openModal, setOpenModal }) => {
                     type="date"
                     name="expiresAt"
                     id="expiresAt"
-                    value={updateFormData.expiresAt}
+                    value={formatDate(updateFormData?.expiresAt)}
                     onChange={(e) =>
                       setUpdateFormData({
                         ...updateFormData,

@@ -291,28 +291,17 @@ const CreateCoupon = () => {
                       >
                         <li
                           className="px-4 py-2.5 flex items-center hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-900 dark:text-gray-100 cursor-pointer"
-                          onClick={() => handleCategorySelect("Skincare")}
+                          onClick={() => handleCategorySelect("Men")}
                         >
-                          Skincare
+                          Men
                         </li>
                         <li
                           className="px-4 py-2.5 flex items-center hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-900 dark:text-gray-100 cursor-pointer"
-                          onClick={() => handleCategorySelect("Body Care")}
+                          onClick={() => handleCategorySelect("Women")}
                         >
-                          Body Care
+                          Women
                         </li>
-                        <li
-                          className="px-4 py-2.5 flex items-center hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-900 dark:text-gray-100 cursor-pointer"
-                          onClick={() => handleCategorySelect("Haircare")}
-                        >
-                          Haircare
-                        </li>
-                        <li
-                          className="px-4 py-2.5 flex items-center hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-900 dark:text-gray-100 cursor-pointer"
-                          onClick={() => handleCategorySelect("Cosmetics")}
-                        >
-                          Cosmetics
-                        </li>
+                        
                       </ul>
                     </div>
                   )}

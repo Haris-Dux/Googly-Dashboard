@@ -33,7 +33,7 @@ const couponSchema = new Schema(
     },
     categories: {
       type: [String],
-      enum: ["Skincare", "Body Care", "Haircare", "Cosmetics"],
+      enum: ["Men","Women"],
     },
     users: {
       type: Array,

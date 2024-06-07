@@ -16,6 +16,14 @@ const AdminBody = () => {
 
   const { user } = useSelector((state) => state.auth);
 
+  useEffect(() => {
+    if (user && user?.login) {
+      navigate("/admin");
+    } else {
+      navigate("/login");
+    }
+  }, [user]);
+
   const handleMoveToTop = () => {
     window.scrollTo({
       top: 0,
