@@ -15,7 +15,7 @@ const OrderDetailPage = () => {
   }, []);
 
   const [isOpen, setIsOpen] = useState(false);
-  const [status,setSelectedStatus] = useState("")
+  const [status, setSelectedStatus] = useState("");
 
   const dropdownRef = useRef(null);
   const orders = useSelector((state) => state.order.orders);
@@ -45,7 +45,7 @@ const OrderDetailPage = () => {
   };
   const handleUpdateStatus = (status) => {
     const orderProgress = status;
-    dispatch(updateOrdersAsync({ id, orderProgress }))
+    dispatch(updateOrdersAsync({ id, orderProgress }));
     setIsOpen(false);
   };
 
@@ -74,9 +74,7 @@ const OrderDetailPage = () => {
                   type="button"
                   onClick={toggleDropdown}
                 >
-                  {status.length > 0
-                    ? `${status}`
-                    : `${data.orderProgress}`}
+                  {status.length > 0 ? `${status}` : `${data.orderProgress}`}
 
                   <IoIosArrowDown
                     size={18}
@@ -108,10 +106,10 @@ const OrderDetailPage = () => {
                         Dispatched
                       </li>
                       <li
-                        onClick={() => handleStatusSelect("Deliverd")}
+                        onClick={() => handleStatusSelect("Delivered")}
                         className="px-3 py-2.5 flex items-center text-gray-900 dark:text-gray-100 dark:hover:bg-gray-600 hover:bg-gray-200 cursor-pointer"
                       >
-                        Deliverd
+                        Delivered
                       </li>
                       <li
                         onClick={() => handleStatusSelect("Cancelled")}
@@ -213,21 +211,14 @@ const OrderDetailPage = () => {
                   <div className="flex justify-center items-center w-full space-y-4 flex-col border-gray-200 border-b pb-4">
                     <div className="flex justify-between w-full">
                       <p className="text-base dark:text-white leading-4 text-gray-800">
-                        Subtotal
+                        Coupon Discount {data?.couponUsed ?  `(${data?.couponUsed?.code})` : ""}
                       </p>
                       <p className="text-base dark:text-gray-300 leading-4 text-gray-600">
-                        Rs. {data?.totalAmount - 300}
+                         {data?.couponUsed ? `Rs. ${data?.couponUsed?.discount}` : "No Discount"}
+
                       </p>
                     </div>
 
-                    <div className="flex justify-between items-center w-full">
-                      <p className="text-base dark:text-white leading-4 text-gray-800">
-                        Shipping
-                      </p>
-                      <p className="text-base dark:text-gray-300 leading-4 text-gray-600">
-                        Rs. {300}
-                      </p>
-                    </div>
                   </div>
                   <div className="flex justify-between items-center w-full">
                     <p className="text-base dark:text-white font-semibold leading-4 text-gray-800">
@@ -258,7 +249,17 @@ const OrderDetailPage = () => {
                       </p>
                     </div>
                   </div>
-                 
+
+                  <div className="flex justify-center w-full md:justify-start items-center space-x-4 py-8 border-b border-gray-200">
+                    <p className="text-base dark:text-white font-semibold leading-4 text-left text-gray-800">
+                      Email:
+                    </p>
+                    <div className="flex justify-start items-start flex-col space-y-2">
+                      <p className="text-base dark:text-white font-semibold leading-4 text-left text-gray-800">
+                        {data?.email}
+                      </p>
+                    </div>
+                  </div>
                 </div>
                 <div className="flex justify-between xl:h-full items-stretch w-full flex-col mt-6 md:mt-0">
                   <div className="flex justify-center md:justify-start xl:flex-col flex-col md:space-x-6 lg:space-x-8 xl:space-x-0 space-y-4 xl:space-y-12 md:space-y-0 md:flex-row items-center md:items-start">
